@@ -34,3 +34,9 @@ erDiagram
         int stock
         string categoria
     }
+```
+🏗 ArquitecturaEl proyecto sigue el Patrón de Capas:Controller: Exposición de endpoints REST y validación de entrada.Service: Lógica de negocio y orquestación.Repository: Comunicación directa con PostgreSQL usando JPA.Mapper: Conversión segura entre Entidades y DTOs (Data Transfer Objects).🚀 Instalación y EjecuciónRequisitosJDK 21 instalado.Docker Desktop ejecutándose.Pasos para iniciarClonar el repositorio:Bashgit clone <tu-url-de-repositorio>
+cd tienda-api
+Levantar PostgreSQL:Bashdocker-compose up -d
+Ejecutar la API:Bash./mvnw spring-boot:run
+🔌 Endpoints PrincipalesMétodoEndpointDescripciónPOST/clientesCrear clienteGET/clientesListar clientesDELETE/productos/{id}Eliminar producto
