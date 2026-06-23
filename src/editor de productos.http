@@ -1,0 +1,20 @@
+### Crear un nuevo producto
+POST http://localhost:8080/productos
+Content-Type: application/json
+
+{
+  "nombre": "Laptop Gamer",
+  "descripcion": "Laptop potente para gaming y trabajo",
+  "precio": 1500.50,
+  "stock": 5,
+  "categoria": "Electronica"
+}
+
+### Listar todos los productos
+GET http://localhost:8080/productos
+
+### Buscar un producto por ID (cambia el '1' por el ID que recibiste al crear)
+GET http://localhost:8080/productos/1
+
+### Eliminar un producto (cambia el '1' por el ID que quieras eliminar)
+DELETE http://localhost:8080/productos/1

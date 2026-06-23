@@ -1,0 +1,17 @@
+### Crear nuevo cliente
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "nombre": "Pedro",
+  "apellido": "Perez",
+  "correo": "juan@email.com",
+  "telefono": "12345678",
+  "direccion": "Avenida Siempre Viva 123"
+}
+
+### Listar todos los clientes
+GET http://localhost:8080/clientes
+
+### Eliminar un cliente por ID (cambia el '1' por el ID real)
+DELETE http://localhost:8080/clientes/3
