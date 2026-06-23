@@ -55,9 +55,13 @@ El proyecto sigue el **Patrón de Capas**, asegurando la separación de responsa
    ```bash
    git clone <URL_DE_TU_REPOSITORIO>
    cd tienda-api
-
+   ```
+2. **Levantar PostgreSQL:**
+   ```bash
    docker-compose up -d
-
+   ```
+3. **Ejecutar la API:**
+   ```bash
    ./mvnw spring-boot:run
    ```
 
