@@ -68,7 +68,7 @@ Para esto, **una tabla es la mejor opción**. Es mucho más legible que una list
 ## 🔌 Endpoints Principales
 
 | Método | Endpoint | Descripción |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | `POST` | `/clientes` | Crear cliente |
 | `GET` | `/clientes` | Listar clientes |
 | `GET` | `/clientes/{id}` | Buscar cliente por ID |
