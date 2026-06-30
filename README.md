@@ -82,14 +82,15 @@ Para esto, **una tabla es la mejor opción**. Es mucho más legible que una list
 
 ## 🔄 Flujo de Datos (Arquitectura)
 
-Para entender cómo viaja la información en nuestro proyecto, este es el camino que recorre cada petición:
+Controller: Es la cara de mi API. Aquí recibo las peticiones que vienen de fuera (como un POST o GET). Mi única tarea aquí es recibir los datos y enviárselos al servicio; no hago cálculos ni lógica pesada.
 
-1. **Controller**: Es la puerta de entrada. Recibe la petición HTTP del usuario, delega el trabajo al `Service` y devuelve la respuesta final.
-2. **DTO (Data Transfer Object)**: Son objetos simples utilizados para transportar datos entre las capas. Evitan que las entidades de la base de datos se expongan directamente al exterior.
-3. **Mapper**: Es el traductor. Convierte el `DTO` (que entiende el usuario) a `Entidad` (que entiende la base de datos) y viceversa.
-4. **Service**: Es el cerebro de la aplicación. Aquí reside toda la lógica de negocio, validaciones y reglas de cálculo antes de tocar los datos.
-5. **Repository**: Es el especialista en persistencia. Se comunica directamente con la base de datos (PostgreSQL) para guardar, buscar o eliminar información.
+DTO (Data Transfer Object): Es como el "sobre" en el que viajan los datos. Uso los DTOs para que el usuario solo vea los campos que yo quiero que vea, protegiendo así la estructura real de mi base de datos.
 
+Mapper: Es mi traductor personal. Como el Controller habla en "idioma DTO" y la base de datos habla en "idioma Entidad", el Mapper se encarga de convertir los datos de un lado al otro automáticamente.
+
+Service: Aquí es donde ocurre la magia. Es el cerebro del proyecto; si necesito validar algo o procesar información antes de guardarla, lo hago en esta capa. Es quien le da las órdenes al repositorio.
+
+Repository: Es mi conexión directa con PostgreSQL. Es el encargado final de ejecutar las consultas SQL para insertar, buscar o borrar los registros en las tablas.
 ---
 
 ### Representación del Flujo
