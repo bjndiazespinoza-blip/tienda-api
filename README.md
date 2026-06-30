@@ -77,3 +77,29 @@ Para esto, **una tabla es la mejor opción**. Es mucho más legible que una list
 | `GET` | `/clientes` | Listar clientes |
 | `GET` | `/clientes/{id}` | Buscar cliente por ID |
 | `DELETE` | `/productos/{id}` | Eliminar producto |
+
+```
+
+## 🔄 Flujo de Datos (Arquitectura)
+
+Para entender cómo viaja la información en nuestro proyecto, este es el camino que recorre cada petición:
+
+1. **Controller**: Es la puerta de entrada. Recibe la petición HTTP del usuario, delega el trabajo al `Service` y devuelve la respuesta final.
+2. **DTO (Data Transfer Object)**: Son objetos simples utilizados para transportar datos entre las capas. Evitan que las entidades de la base de datos se expongan directamente al exterior.
+3. **Mapper**: Es el traductor. Convierte el `DTO` (que entiende el usuario) a `Entidad` (que entiende la base de datos) y viceversa.
+4. **Service**: Es el cerebro de la aplicación. Aquí reside toda la lógica de negocio, validaciones y reglas de cálculo antes de tocar los datos.
+5. **Repository**: Es el especialista en persistencia. Se comunica directamente con la base de datos (PostgreSQL) para guardar, buscar o eliminar información.
+
+---
+
+### Representación del Flujo
+
+```mermaid
+graph TD
+    A[Controller] -->|Recibe/Envía| B(DTO)
+    B -->|Transforma| C(Mapper)
+    C -->|Convierte| D[Service]
+    D -->|Gestiona Lógica| E[Repository]
+    E -->|Consulta| F[(Base de Datos)]
+
+```
